@@ -1,0 +1,60 @@
+<script src="socket.io.js"></script>
+<script>
+
+    // Sachin
+    var socket = io.connect('http://52.205.151.99/',{query: {access_token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZWRiZDg3M2YxY2YwMTBlM2M0YjZlMDYiLCJpYXQiOjE1OTE0NjYwOTl9.4Bf3DtR60wGLaTx98hevmYVcw70lzpn_OVTUvWESz3I"}});
+
+    socket.emit('/api/chat', { chatId: '5edbd81bf1cf010e3c4b6dfe5edbd873f1cf010e3c4b6e06' });
+    // socket.emit('/api/chats', { _id: '5ebb90779b0b7c30add96800' });
+    // socket.emit('/api/chat/post', {"_id":"5ebb90779b0b7c30add96800","userId2":"5ebaa8b4ab35712c1757b1f3","message":"Hi"} );
+    //socket.emit('/api/chat/typing', {"chatId":"5ebaa8b4ab35712c1757b1f35ebb90779b0b7c30add96800","_id":"5ebaa8b4ab35712c1757b1f3","message":"Hi"} );
+    //socket.emit('chats-5ebaa8b4ab35712c1757b1f35ebaa8b4ab35712c1757b1f3', { chatId: '5ebaa8b4ab35712c1757b1f35ebaa8b4ab35712c1757b1f3' });
+    // socket.on('/api/chat/post', function (data) {
+    //     console.log(data);
+        
+    // });
+
+    setTimeout(()=>{
+    // while(1){
+        setInterval(()=>{
+            socket.emit('/api/chat/post', {"_id":"5edbd81bf1cf010e3c4b6dfe","userId2":"5edbd873f1cf010e3c4b6e06","message":"Hi"+Date.now()} );
+        },2000)
+    // }
+    },2000)
+
+    socket.on('/api/chat/5edbd81bf1cf010e3c4b6dfe5edbd873f1cf010e3c4b6e06', function (data) {
+        console.log(data);
+        
+        
+    });
+
+    socket.on('/api/chats', function (data) {
+        console.log(data);
+        
+    });
+
+    socket.on('/api/chat', function (data) {
+        console.log(data);
+        
+    });
+
+
+    // socket.on('/api/chat/typing', function (data) {
+    //     console.log(data);
+        
+    // });
+
+    // socket.emit('chats', { chatId: '5ebaa8b4ab35712c1757b1f35ebb90779b0b7c30add96800' });
+    // socket.on('chats', function (data) {
+    //     console.log(data);
+    // });
+
+    // var socket = io.connect('',{query: {_id:"5e98a4b6ddf98e589ce059dd",chatId:"5e98a4b6ddf98e589ce059dd5e99cf62661dd932a8c60225",access_token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZTk4YTRiNmRkZjk4ZTU4OWNlMDU5ZGQiLCJpYXQiOjE1ODc0NTc0ODV9.x-A8rX6YStycMcd3pmEyG_Mnh3K1drSuK1Ocqb8z0T0"}});
+    // socket.on('chat-5e98a4b6ddf98e589ce059dd5e99cf62661dd932a8c60225', function (data) {
+    //     console.log(data);
+    //     socket.emit('my other event', { my: 'data' });
+    // });
+    // socket.emit('chats', { my: 'data' });
+    // socket.emit('chat-5e98a4b6ddf98e589ce059dd5e99cf62661dd932a8c60225', { my: 'data' });
+    
+</script>
